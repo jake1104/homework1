@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image comparision(before/after) slider with pure CSS</title>
+    <style type="text/css">
+
+        *{
+            margin:0;
+            padding:0;
+        }
+        body{
+            width: 100vw;
+            height:100vh;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            background:#223;
+        }
+        .box{
+            position:absolute;
+            width:667px;
+            height:500px;
+        }
+        #a{
+            resize:none;
+            width:inherit;
+            height:inherit;
+            max-width:100%;
+            position:absolute;
+            background:url(after.jpg);
+            background-size:cover;
+            cursor:pointer;
+            -webkir-box-reflection:blow 1px linear-gradient(transparent,#0005);
+        }
+        #b{
+            resize:horizontal;
+            width:inherit;
+            height:inherit;
+            max-width:100%;
+            position:absolute;
+            background:url(before.jpg);
+            background-size:cover;
+            width:50%;
+            border-right:2px solid #eee;
+            cursor:pointer;
+        }
+        input{
+            top:500;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <textarea id="a" readonly=""></textarea>
+    <textarea id="b" readonly=""></textarea>
+    <input type="range" min="0" max="100" value="50" oninput="sliderChange(this.value)">
+</div>
+</body>
+</html>
+
+<script>
+    function sliderChange(val) {
+        document.getElementById('i').innerHTML = val;
+        document.getElementById("b").style.width = val.toString() + "px";
+    }
+</script>
